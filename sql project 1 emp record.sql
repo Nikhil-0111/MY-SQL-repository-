@@ -8,8 +8,17 @@ use employee;
 DEPARTMENT from the employee record table, and make a list of employees 
 and details of their department.*/
 
-select emp_id,first_name,last_name,gender,Dept from emp_record_table;
-select emp_id,concat(first_name,' ',last_name)as fullname,gender,Dept from emp_record_table;
+SELECT 
+    emp_id, first_name, last_name, gender, Dept
+FROM
+    emp_record_table;
+SELECT 
+    emp_id,
+    CONCAT(first_name, ' ', last_name) AS fullname,
+    gender,
+    Dept
+FROM
+    emp_record_table;
 
 /*4.  Write a query to fetch EMP_ID, FIRST_NAME, LAST_NAME, GENDER, 
 DEPARTMENT, and EMP_RATING if the EMP_RATING is:  
@@ -23,10 +32,13 @@ DEPARTMENT, and EMP_RATING if the EMP_RATING is:
  select emp_id,first_name,last_name,gender,Dept ,EMP_RATING 
       from emp_record_table 
        where emp_rating>4;
-       
-       select emp_id,first_name,last_name,gender,Dept ,EMP_RATING 
- from emp_record_table 
- where emp_rating between 2 and 4;
+     
+SELECT 
+    emp_id, first_name, last_name, gender, Dept, EMP_RATING
+FROM
+    emp_record_table
+WHERE
+    emp_rating BETWEEN 2 AND 4
  
  
 /* 5.  write a query to concatenate the FIRST_NAME and the LAST_NAME of 
@@ -64,21 +76,25 @@ select concat_ws(' ',first_name,last_name) as emp_name ,dept
    select concat_ws(' ',first_name,last_name) as emp_name ,dept
       from emp_record_table 
       where dept = 'healthcare';   
-      
+  
 /*8.       Write a query to list down employee details such as EMP_ID, FIRST_NAME, 
 LAST_NAME, ROLE, DEPARTMENT, and EMP_RATING grouped by dept. Also 
 include the respective employee rating along with the max emp rating for the 
 department */
 
-select emp_id,dept,concat_ws(' ',first_name,last_name) as emp_name,role,emp_rating,
-count(emp_id) as num_emp,
-avg(emp_rating) as avg_rating,
-max(emp_rating) as max_rating
-from emp_record_table
-group by emp_id,dept,first_name,last_name,role,emp_rating
-order by dept;
-
-/*.9. Write a query to calculate the minimum and the maximum salary of the 
+SELECT 
+    emp_id,
+    dept,
+    CONCAT_WS(' ', first_name, last_name) AS emp_name,
+    role,
+    emp_rating,
+    COUNT(emp_id) AS num_emp,
+    AVG(emp_rating) AS avg_rating,
+    MAX(emp_rating) AS max_rating
+FROM
+    emp_record_table
+GROUP BY emp_id , dept , first_name , last_name , role , emp_rating
+ORDER BY dept9. Write a query to calculate the minimum and the maximum salary of the 
 employees in each role. Take data from the employee record table.    */
 
 select Role,min(salary) as Min_salary,max(salary) as Max_salary
