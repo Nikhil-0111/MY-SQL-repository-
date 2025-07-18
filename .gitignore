@@ -1,0 +1,18 @@
+# Ignore CSV files (for privacy)
+*.csv
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore backup/temp files
+*.bak
+*.tmp
+*.swp
+
+# Ignore IDE/project-specific settings
+.vscode/
+.idea/
+
+# Ignore logs
+*.log
